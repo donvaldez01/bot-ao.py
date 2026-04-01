@@ -21,7 +21,7 @@ TELEGRAM_TOKEN = os.environ["TELEGRAM_TOKEN"]
 TELEGRAM_CHAT  = os.environ["TELEGRAM_CHAT"]
 
 DERIV_WS_URL   = "wss://ws.derivws.com/websockets/v3?app_id=1089"
-SYMBOL         = "R_100_1S"
+SYMBOL         = "1HZ100V"
 BARRIER_OFFSET = 0.1
 MAX_DAILY_LOSS = float(os.environ.get("MAX_DAILY_LOSS", "5000"))
 
