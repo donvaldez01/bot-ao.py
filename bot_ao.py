@@ -106,9 +106,9 @@ def analisar_sinal(ao_values: list) -> str | None:
     barra_vermelha = ao_atual < ao_anterior
 
     if ao_atual > 0 and barra_vermelha:
-        return "HIGHER"
+        return "CALL"
     if ao_atual < 0 and barra_verde:
-        return "LOWER"
+        return "PUT"
     return None
 
 
@@ -219,8 +219,8 @@ async def conectar() -> None:
                         # Stake = 1% do saldo
                         stake        = round(state["balance"] * 0.01, 2)
                         preco_atual  = candles[-1]["close"]
-                        barrier      = round(preco_atual + BARRIER_OFFSET, 2) if sinal == "HIGHER" else round(preco_atual - BARRIER_OFFSET, 2)
-                        barrier_str  = f"+{BARRIER_OFFSET}" if sinal == "HIGHER" else f"-{BARRIER_OFFSET}"
+                        barrier      = round(preco_atual + BARRIER_OFFSET, 2) if sinal == "CALL" else round(preco_atual - BARRIER_OFFSET, 2)
+                        barrier_str  = f"+{BARRIER_OFFSET}" if sinal == "CALL" else f"-{BARRIER_OFFSET}"
 
                         log.info(f"Sinal: {sinal} | Stake: ${stake} | Barrier: {barrier_str} | Preço: {preco_atual}")
 
